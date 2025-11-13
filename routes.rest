@@ -33,7 +33,7 @@ DELETE http://localhost:8080/games/691643b3eeef30da4c6dbcd7
 ### USERS
 
 ### get single
-GET http://localhost:8080/user/691653e8a299b6e6bf
+GET http://localhost:8080/user/691653ee81c3e8a299b6e6bf
 
 ### create game
 POST http://localhost:8080/user
