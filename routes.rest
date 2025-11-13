@@ -1,0 +1,25 @@
+### get all
+GET http://localhost:8080/games
+
+### create game
+POST http://localhost:8080/games
+content-type: application/json
+
+{
+    "name": "Terraria",
+    "price": "$20",
+    "description": "2D Survival Adventure"
+}
+
+### update contact
+PUT http://localhost:8080/games/(id here)
+Content-Type: application/json
+
+{
+    "name": "",
+    "price": "",
+    "description": ""
+}
+
+### delete contact
+DELETE http://localhost:8080/games/(id here)
