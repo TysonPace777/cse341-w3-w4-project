@@ -31,7 +31,7 @@
         }
       }
     },
-    "/games/": {
+    "/games": {
       "get": {
         "description": "",
         "responses": {
@@ -149,7 +149,7 @@
         }
       }
     },
-    "/user/": {
+    "/user": {
       "post": {
         "description": "",
         "responses": {
