@@ -1,25 +1,28 @@
 ### get all
 GET http://localhost:8080/games
 
+### get single
+GET http://localhost:8080/games/691643b3eeef30da4c6dbcd7
+
 ### create game
 POST http://localhost:8080/games
 content-type: application/json
 
 {
-    "name": "Terraria",
-    "price": "$20",
-    "description": "2D Survival Adventure"
+    "name": "testing",
+    "price": "$35",
+    "description": "rest api testing"
 }
 
 ### update contact
-PUT http://localhost:8080/games/(id here)
+PUT http://localhost:8080/games/691643b3eeef30da4c6dbcd7
 Content-Type: application/json
 
 {
-    "name": "",
-    "price": "",
-    "description": ""
+    "name": "update test 2",
+    "price": "$25",
+    "description": "rest update test 2",
 }
 
 ### delete contact
-DELETE http://localhost:8080/games/(id here)
+DELETE http://localhost:8080/games/691643b3eeef30da4c6dbcd7

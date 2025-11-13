@@ -10,6 +10,19 @@ const getAll = async (req, res) => {
     });
 };
 
+//get one videogame
+const getSingle = async (req, res) => {
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must use a valid contact Id.');
+    }
+    const userId = new ObjectId(req.params.id);
+    const result = await mongodb.getDatabase().db().collection('videoGames').find({ _id: userId });
+    result.toArray().then((videoGames) => {
+        res.setHeader('Content-type', 'application/json');
+        res.status(200).json(videoGames[0]);
+    });
+};
+
 // Adds a new videogame to the DB
 const createGame = async (req, res) => {
     const contact = {
@@ -25,7 +38,43 @@ const createGame = async (req, res) => {
     }
 };
 
+// update game info
+const updateGame = async (req, res) => {
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must use a valid contact Id.');
+    }
+    const userId = new ObjectId(req.params.id);
+    const contact = {
+        name: req.body.name,
+        price: req.body.price,
+        description: req.body.description
+    };
+    const response = await mongodb.getDatabase().db().collection('videoGames').replaceOne({ _id: userId }, contact);
+    if (response.modifiedCount > 0) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error || 'An error occured while updating the user.')
+    }
+};
+
+// delete game
+const deleteGame = async (req, res) => {
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must use a valid contact Id.');
+    }
+    const userId = new ObjectId(req.params.id);
+    const response = await mongodb.getDatabase().db().collection('videoGames').deleteOne({ _id: userId });
+    if (response.deletedCount > 0) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error || 'An error occured while deleting the user.')
+    }
+};
+
 module.exports = {
     getAll,
-    createGame
+    getSingle,
+    createGame,
+    updateGame,
+    deleteGame
 };
