@@ -13,7 +13,7 @@ const getAll = async (req, res) => {
 //gets one videogame
 const getSingle = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
-        res.status(400).json('Must use a valid contact Id.');
+        return res.status(400).json({ error: 'Must use a valid video game ID.' });
     }
     const userId = new ObjectId(req.params.id);
     const result = await mongodb.getDatabase().db().collection('videoGames').find({ _id: userId });
@@ -34,14 +34,14 @@ const createGame = async (req, res) => {
     if (response.acknowledged) {
         res.status(204).send();
     } else {
-        res.status(500).json(response.error || 'An error occured while updating the user.')
+        res.status(500).json(response.error || 'An error occured while creating the game.')
     }
 };
 
 // update game info
 const updateGame = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
-        res.status(400).json('Must use a valid contact Id.');
+        return res.status(400).json({ error: 'Must use a valid video game ID.' });
     }
     const userId = new ObjectId(req.params.id);
     const contact = {
@@ -53,21 +53,21 @@ const updateGame = async (req, res) => {
     if (response.modifiedCount > 0) {
         res.status(204).send();
     } else {
-        res.status(500).json(response.error || 'An error occured while updating the user.')
+        res.status(500).json(response.error || 'An error occured while updating the game.')
     }
 };
 
 // delete game
 const deleteGame = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
-        res.status(400).json('Must use a valid contact Id.');
+        return res.status(400).json({ error: 'Must use a valid video game ID.' });
     }
     const userId = new ObjectId(req.params.id);
     const response = await mongodb.getDatabase().db().collection('videoGames').deleteOne({ _id: userId });
     if (response.deletedCount > 0) {
         res.status(204).send();
     } else {
-        res.status(500).json(response.error || 'An error occured while deleting the user.')
+        res.status(500).json(response.error || 'An error occured while deleting the game.')
     }
 };
 
