@@ -10,7 +10,7 @@ const getAll = async (req, res) => {
     });
 };
 
-//get one videogame
+//gets one videogame
 const getSingle = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid contact Id.');
