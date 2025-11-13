@@ -43,8 +43,8 @@
       "post": {
         "description": "",
         "responses": {
-          "412": {
-            "description": "Precondition Failed"
+          "400": {
+            "description": "Bad Request"
           }
         }
       }
@@ -77,8 +77,8 @@
           }
         ],
         "responses": {
-          "412": {
-            "description": "Precondition Failed"
+          "400": {
+            "description": "Bad Request"
           }
         }
       },
@@ -95,6 +95,66 @@
         "responses": {
           "default": {
             "description": ""
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/user/": {
+      "post": {
+        "description": "",
+        "responses": {
+          "400": {
+            "description": "Bad Request"
           }
         }
       }

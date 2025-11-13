@@ -1,3 +1,5 @@
+### GAMES
+
 ### get all
 GET http://localhost:8080/games
 
@@ -26,3 +28,40 @@ Content-Type: application/json
 
 ### delete contact
 DELETE http://localhost:8080/games/691643b3eeef30da4c6dbcd7
+
+
+### USERS
+
+### get single
+GET http://localhost:8080/user/691653e8a299b6e6bf
+
+### create game
+POST http://localhost:8080/user
+content-type: application/json
+
+{
+    "firstName": "rest",
+    "lastName": "test",
+    "username": "restapi1",
+    "email": "fake@gmail.com",
+    "birthday": "1/1/2000",
+    "password": "thisshouldbehashedeventually",
+    "membershipLevel": "Silver"
+}
+
+### update contact
+PUT http://localhost:8080/user/691653ee81c3e8a299b6e6bf
+Content-Type: application/json
+
+{
+    "firstName": "rest2",
+    "lastName": "test2",
+    "username": "restapi123",
+    "email": "fake@gmail.com",
+    "birthday": "1/1/2001",
+    "password": "thisshouldbehashedeventually",
+    "membershipLevel": "Copper"
+}
+
+### delete contact
+DELETE http://localhost:8080/user/691653ee81c3e8a299b6e6bf
