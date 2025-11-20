@@ -1,6 +1,6 @@
 const mongodb = require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
-import bcrypt from 'bcrypt';
+const bcrypt = require('bcrypt');
 
 //hash passwords
 async function hashPassword(password) {
